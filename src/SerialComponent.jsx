@@ -100,7 +100,7 @@ const WeightScale = () => {
               const newValue = decoder.decode(value);
               weightValue += newValue;
               const replacedValue = weightValue.replace(/[^ -~]+/g, ''); // remove stx string
-              const splittedValue: any = replacedValue.split(' ');
+              const splittedValue = replacedValue.split(' ');
               console.log('old machine running', splittedValue);
 
               splittedValue?.length > 0 &&
