@@ -40,18 +40,18 @@ const WeightScale = () => {
 
   const connectHandler = async () => {
     closePort();
-    const oldMachineOptions = {
-      baudRate: 1200,
-      baudrate: 1200,
-      bufferSize: 8192,
-      dataBits: 7,
-      databits: 7,
-      flowControl: 'none',
-      parity: 'even',
-      rtscts: false,
-      stopBits: 1,
-      stopbits: 1,
-    };
+    // const oldMachineOptions = {
+    //   baudRate: 1200,
+    //   baudrate: 1200,
+    //   bufferSize: 8192,
+    //   dataBits: 7,
+    //   databits: 7,
+    //   flowControl: 'none',
+    //   parity: 'even',
+    //   rtscts: false,
+    //   stopBits: 1,
+    //   stopbits: 1,
+    // };
 
     const newMachineOptions = {
       baudRate: 9600,
@@ -73,9 +73,7 @@ const WeightScale = () => {
     const info = port?.getInfo();
     console.log(info, 'info');
     try {
-      await port.open(
-        isOldMachine(info) ? oldMachineOptions : newMachineOptions,
-      );
+      await port.open(newMachineOptions);
       setIsConnected(true);
     } catch (error) {
       console.log(error, 'error in opening port');
