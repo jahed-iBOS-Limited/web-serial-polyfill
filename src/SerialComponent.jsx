@@ -34,6 +34,7 @@ const WeightScale = () => {
     if (!selectedPort) return;
 
     const portInfo = selectedPort.getInfo();
+    console.log(portInfo, 'portInfo');
     const baudRate = isOldMachine(portInfo) ? 1200 : 9600;
     const serialConfig = {
       baudRate,
