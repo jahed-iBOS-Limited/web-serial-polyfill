@@ -115,28 +115,12 @@ const WeightScale = () => {
               const newValue = decoder.decode(value);
               const replacedValue = newValue.replace(/[^ -~]+/g, ''); // remove stx string
 
-              if (
-                selectedBusinessUnit?.value === essentialUnitId ||
-                selectedBusinessUnit?.value === kofilRazzakUnitId ||
-                selectedBusinessUnit?.value === magnumSteelUnitId ||
-                selectedBusinessUnit.value === isPatUnitId
-              ) {
-                const newReplacedValue = replacedValue.replace(/[a-zA-Z]/, '8');
-                const replacedValueNumber = Number(newReplacedValue);
-                const actualValue = replacedValueNumber / 1000;
-                console.log('new machine running', actualValue);
-                if (actualValue > 0) {
-                  setWeight(actualValue.toFixed());
-                }
-              } else {
-                const splittedValue = replacedValue.split(' ');
-                console.log('new machine running', splittedValue);
-                splittedValue?.length > 0 &&
-                  splittedValue.forEach((item) => {
-                    if (item?.length === 5) {
-                      setWeight(Number(item));
-                    }
-                  });
+              const newReplacedValue = replacedValue.replace(/[a-zA-Z]/, '8');
+              const replacedValueNumber = Number(newReplacedValue);
+              const actualValue = replacedValueNumber / 1000;
+              console.log('new machine running', actualValue);
+              if (actualValue > 0) {
+                setWeight(actualValue.toFixed());
               }
             }
           }
